@@ -112,8 +112,9 @@ const styles = StyleSheet.create({
 		width: "100%",
 		height: "100%",
 		borderRadius: 10,
-		padding: 20,
+		padding: 40,
 		gap: 20,
+		justifyContent: "center",
 	},
 	form: {
 		display: "flex",

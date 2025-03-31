@@ -2,11 +2,12 @@ import { Stack } from "expo-router"
 import { useFonts } from "expo-font"
 import { useEffect } from "react"
 
-import { AppProvider } from "@/lib/context/cart"
+import { AppProvider } from "@/lib/context/app"
 import { initDatabase } from "@/lib/db"
 import { ModalProvider } from "@/lib/context/modal"
 
 import FontAwesome from "@expo/vector-icons/FontAwesome"
+
 import * as SplashScreen from "expo-splash-screen"
 
 export const unstable_settings = {
@@ -23,7 +24,9 @@ export default function RootLayout() {
 
 	useEffect(() => {
 		if (error) throw error
-		;(async () => await initDatabase())()
+		;(async () => {
+			await initDatabase()
+		})()
 	}, [error])
 
 	useEffect(() => {

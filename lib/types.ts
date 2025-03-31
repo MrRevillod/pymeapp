@@ -43,12 +43,14 @@ export type Category = TypeOf<typeof CategorySchema> & {
 
 // Phone Schemas ---------------------------------------------------
 
-export const PhoneNumbersSchema = object({
-	phoneNumber: string({ message: "El número de teléfono debe ser un número de 9 dígitos" })
+export const PhoneNumberSchema = object({
+	phone: string({ message: "El número de teléfono debe ser un número de 9 dígitos" })
 		.min(9, { message: "El número de teléfono debe tener 9 dígitos" })
 		.max(9, { message: "El número de teléfono debe tener 9 dígitos" })
 		.regex(/^9\d{8}$/, { message: "El número de teléfono debe comenzar con 9" }),
 })
+
+export type PhoneNumberFormValues = TypeOf<typeof PhoneNumberSchema>
 
 // Utility Types -------------------------------------------------
 

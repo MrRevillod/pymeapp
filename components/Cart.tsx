@@ -1,5 +1,5 @@
 import { commonStyles } from "@/lib/styles"
-import { useAppContext } from "@/lib/context/cart"
+import { useAppContext } from "@/lib/context/app"
 import { PRIMARY_PURPLE, formatChileanPesos } from "@/lib/utils"
 
 import { ProductRow } from "./ProductRow"

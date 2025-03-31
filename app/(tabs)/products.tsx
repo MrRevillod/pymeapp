@@ -2,7 +2,7 @@ import { FontAwesome6 } from "@expo/vector-icons"
 
 import { useModal } from "@/lib/context/modal"
 import { commonStyles } from "@/lib/styles"
-import { useAppContext } from "@/lib/context/cart"
+import { useAppContext } from "@/lib/context/app"
 import { Category, Product, ProductInCart } from "@/lib/types"
 
 import * as products from "@/lib/actions/products"

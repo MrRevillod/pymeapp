@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, View, Text, Alert } from "react-native"
 
 import { useModal } from "@/lib/context/modal"
 import { CartSumary } from "@/components/CartSummary"
-import { useAppContext } from "@/lib/context/cart"
+import { useAppContext } from "@/lib/context/app"
 import { PRIMARY_PURPLE } from "@/lib/utils"
 
 const { alert } = Alert

@@ -1,5 +1,5 @@
 import ViewShot, { captureRef } from "react-native-view-shot"
-import { Alert, Pressable, Share, StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View, Share } from "react-native"
 
 import { useModal } from "@/lib/context/modal"
 import { commonStyles } from "@/lib/styles"
@@ -7,11 +7,11 @@ import { ProductInCart } from "@/lib/types"
 
 import { FC, useRef } from "react"
 
-import { useAppContext } from "@/lib/context/cart"
+import { CartPreview } from "./CartPreview"
+import { useAppContext } from "@/lib/context/app"
 import { PRIMARY_PURPLE } from "@/lib/utils"
 
 import * as history from "@/lib/actions/history"
-import { CartPreview } from "./CartPreview"
 
 export const CartSumary: FC<{ cart: ProductInCart[] }> = ({ cart }) => {
 	const { closeModal } = useModal()
@@ -26,26 +26,14 @@ export const CartSumary: FC<{ cart: ProductInCart[] }> = ({ cart }) => {
 				quality: 0.8,
 			})
 
-			const message = `¡Hola! 😊\n\nEsto es el resumen de tu atención:\n📅 ${new Date().toLocaleString(
-				"es-CL"
-			)}\n\n`
-
 			await Promise.all([
-				history.add(cart, total),
 				Share.share({
-					title: "Resumen de tu pedido",
-					message: message,
 					url: uri,
 				}),
+				history.add(cart, total),
 			])
 
-			Alert.alert(
-				"Resumen compartido",
-				"El resumen de tu atención ha sido compartido exitosamente."
-			)
-
 			cleanCart()
-			closeModal()
 		} catch (error) {
 			console.error("Error al compartir:", error)
 		}
@@ -68,7 +56,7 @@ export const CartSumary: FC<{ cart: ProductInCart[] }> = ({ cart }) => {
 					style={{ ...commonStyles.button, ...styles.secondaryButton }}
 					onPress={closeModal}
 				>
-					<Text style={{ color: PRIMARY_PURPLE, fontWeight: "bold" }}>Cancelar</Text>
+					<Text style={{ color: PRIMARY_PURPLE, fontWeight: "bold" }}>Volver atrás</Text>
 				</Pressable>
 				<Pressable
 					style={{ ...commonStyles.button, ...styles.primaryButton }}

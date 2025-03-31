@@ -15,6 +15,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined)
 export const AppProvider = ({ children }: { children: ReactNode }) => {
 	const [cart, setCart] = useState<ProductInCart[]>([])
 	const [total, setTotal] = useState<number>(0)
+	const [session, setSession] = useState<"active" | "inactive">("inactive")
 
 	const addProductToCart = (product: Product) => {
 		const index = cart.findIndex((item) => item.id === product.id)

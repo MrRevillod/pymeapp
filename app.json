@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pymeapp",
-    "slug": "pymeapp",
+    "name": "NailApp",
+    "slug": "nailapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -14,7 +14,13 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mrrevillod.nailapp",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Esta aplicación necesita acceso a tu galería para compartir imágenes.",
+        "NSPhotoLibraryAddUsageDescription": "Esta aplicación necesita acceso para guardar imágenes en tu galería."
+      },
+      "newArchEnabled": true
     },
     "android": {
       "adaptiveIcon": {
@@ -22,10 +28,12 @@
         "backgroundColor": "#ffffff"
       },
       "permissions": [
-        "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE"
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
       ],
-      "package": "com.mrrevillod.pymeapp"
+      "package": "com.mrrevillod.nailapp",
+      "newArchEnabled": true
     },
     "web": {
       "bundler": "metro",
@@ -59,8 +67,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "cf165a5c-d618-474c-bd49-5f290f7c7c7b"
+        "projectId": "16b23e0b-ac03-4167-a922-ddd5e32b5c1b"
       }
-    }
+    },
+    "owner": "mrrevillod"
   }
 }
